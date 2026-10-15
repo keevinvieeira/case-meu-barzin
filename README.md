@@ -16,10 +16,10 @@ Case Study completo de Product Management documentando o ciclo de Product Discov
 ---
 
 ## 📊 Principais Métricas & Evidências
-- **505 Leads Qualificados** de topo de funil captados 100% organicamente.
-- **2.000+ seguidores orgânicos** no Instagram.
+- **505 Leads Qualificados** de topo de funil captados via estratégia híbrida (conteúdo temático de nicho + orçamento mínimo diário em anúncios de alcance).
+- **2.000+ seguidores** engajados no Instagram através de posts de curadoria ("Bares Pet Friendly", "Bares Rock and Roll", "Bares Abertos").
 - **22.3% de taxa de alto engajamento** (usuários com 4+ interações com a IA).
-- **2 Parcerias Âncora B2B fechadas:** Gal Gastrobar e Officina Resto Bar.
+- **2 Parcerias Âncora B2B fechadas presencialmente:** Gal Gastrobar e Officina Resto Bar (relação iniciada após reposts orgânicos das publicações nos Stories dos bares).
 - **~0% de alucinação na IA** com RAG relacional estruturado em JSON para 200 bares de Curitiba.
 - **Gargalo de Latência de API (43.9% drop):** Diagnóstico de causa-raiz e congelamento de roadmap para correção técnica.
 
