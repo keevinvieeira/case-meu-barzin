@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Study: Meu Barzin | Kevin Augusto Vieira — Product Manager</title>
+  
+  <!-- SEO & Open Graph Meta Tags -->
+  <meta name="description" content="Case Study completo de Product Management: Validação de MVP 0→1, Marketplace Conversacional com IA e Assinatura B2B/B2C por Kevin Augusto Vieira (Co-Founder & PM).">
+  <meta property="og:title" content="Case Study: Meu Barzin — Kevin Augusto Vieira | Product Manager">
+  <meta property="og:description" content="Validação de MVP com IA Conversacional no WhatsApp, RAG Zero Hallucination, OST e Matriz SCALE de Monica Possel (FoundersPM).">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://keevinvieeira.github.io/case-meu-barzin/">
+  <meta name="author" content="Kevin Augusto Vieira">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo-capizin.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#fff7ed',
+              100: '#ffedd5',
+              400: '#fb923c',
+              500: '#f97316',
+              600: '#ea580c',
+            },
+            surface: {
+              50: '#f8fafc',
+              800: '#1e293b',
+              850: '#172033',
+              900: '#0f172a',
+              950: '#090d16',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Mermaid.js for Dynamic Diagrams -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'dark',
+      themeVariables: {
+        darkMode: true,
+        background: '#0f172a',
+        primaryColor: '#1e293b',
+        primaryTextColor: '#f8fafc',
+        primaryBorderColor: '#f97316',
+        lineColor: '#64748b',
+        secondaryColor: '#022c22',
+        tertiaryColor: '#1e1b4b'
+      }
+    });
+  </script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #090d16;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #f97316;
+    }
+
+    /* Print Stylesheet for Executive PDF Export */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .print-break {
+        page-break-before: always;
+      }
+      .card-print {
+        border: 1px solid #cccccc !important;
+        background: #ffffff !important;
+        color: #000000 !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-surface-950 text-slate-100 min-h-screen selection:bg-brand-500 selection:text-white font-sans antialiased">
+
+  <!-- Top Progress Bar -->
+  <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-brand-500 to-amber-400 z-50 transition-all duration-150" style="width: 0%"></div>
+
+  <!-- Sticky Executive Navbar -->
+  <header class="sticky top-0 z-40 backdrop-blur-xl bg-surface-950/85 border-b border-slate-800/80 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Brand & PM Tag -->
+      <div class="flex items-center space-x-3">
+        <img src="assets/logo-capizin.png" alt="Meu Barzin Logo" class="w-10 h-10 rounded-xl object-cover ring-2 ring-brand-500/30">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-bold text-lg tracking-tight text-white">Meu Barzin</span>
+            <span class="text-xs px-2 py-0.5 rounded-full font-semibold bg-brand-500/10 text-brand-400 border border-brand-500/20">Case de PM</span>
+          </div>
+          <p class="text-xs text-slate-400 hidden sm:block">Kevin Augusto Vieira • Co-Founder & Product Manager</p>
+        </div>
+      </div>
+
+      <!-- Quick Nav Links -->
+      <nav class="hidden md:flex items-center space-x-1 text-sm font-medium text-slate-300">
+        <a href="#tldr" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition">Resumo</a>
+        <a href="#ost" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition">Mapa OST</a>
+        <a href="#scale" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition">Matriz SCALE</a>
+        <a href="#canvas" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition">Hypothesis Canvas</a>
+        <a href="#rigor" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition">Gargalo 43.9% & IA</a>
+        <a href="#skills" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition">Competências</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center space-x-2">
+        <a href="https://pmradar.founderspm.com.br/case/cef86cff-658d-49aa-a955-facda01e601f" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+          <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+          <span>PMRadar</span>
+        </a>
+        <button onclick="copyCaseUrl()" class="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-lg bg-brand-500 hover:bg-brand-600 text-white shadow-lg shadow-brand-500/20 transition" title="Copiar link para compartilhar">
+          <i data-lucide="share-2" class="w-3.5 h-3.5"></i>
+          <span id="share-btn-text" class="hidden sm:inline">Compartilhar</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-20">
+
+    <!-- HERO SECTION & TL;DR -->
+    <section id="tldr" class="relative">
+      
+      <!-- Ambient Glow Effect -->
+      <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-3/4 h-64 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative space-y-6">
+        
+        <!-- Category & Badges -->
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="inline-flex items-center gap-1.5 text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded-full bg-slate-800 text-brand-400 border border-brand-500/20">
+            <i data-lucide="award" class="w-3.5 h-3.5"></i>
+            Portfolio Case Study • Product Leadership
+          </span>
+          <span class="text-xs px-3 py-1 rounded-full bg-slate-800/80 text-slate-300 border border-slate-700">
+            Metodologia Monica Possel (FoundersPM / PMAC)
+          </span>
+          <span class="text-xs px-3 py-1 rounded-full bg-emerald-950/60 text-emerald-400 border border-emerald-800/40">
+            Dezembro 2025 – Março 2026 • Curitiba, PR
+          </span>
+        </div>
+
+        <!-- Main Title -->
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+          Meu Barzin: Validação 0→1 de Marketplace Conversacional com IA e Assinatura B2B/B2C
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-lg sm:text-xl text-slate-300 max-w-4xl leading-relaxed">
+          Como conduzi o ciclo de Product Discovery, priorização e validação de MVP sob os frameworks de <strong class="text-white">Monica Possel</strong>: gerando <strong>505 leads 100% orgânicos</strong>, <strong>22.3% de alto engajamento</strong> com IA sommelier e diagnosticando com rigor analítico o <strong>gargalo de latência de 43.9%</strong>.
+        </p>
+
+        <!-- Author & Metadata Card -->
+        <div class="p-4 sm:p-5 rounded-2xl bg-surface-900/80 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div class="flex items-center space-x-4">
+            <img src="https://github.com/keevinvieeira.png" alt="Kevin Augusto Vieira" class="w-14 h-14 rounded-full ring-2 ring-brand-500/40 object-cover shadow-md">
+            <div>
+              <div class="flex items-center gap-2">
+                <h3 class="text-base font-bold text-white">Kevin Augusto Vieira</h3>
+                <span class="text-xs px-2 py-0.5 rounded bg-brand-500/10 text-brand-400 font-semibold border border-brand-500/20">Autor do Case</span>
+              </div>
+              <p class="text-xs text-slate-400">Co-Founder & Product Manager • Especialista em IA & Marketplaces</p>
+              <div class="flex items-center gap-3 mt-1 text-xs text-slate-400">
+                <a href="https://www.linkedin.com/in/kevin-augusto/" target="_blank" rel="noopener" class="hover:text-brand-400 flex items-center gap-1">
+                  <i data-lucide="linkedin" class="w-3.5 h-3.5"></i> LinkedIn
+                </a>
+                <span>•</span>
+                <a href="https://github.com/keevinvieeira" target="_blank" rel="noopener" class="hover:text-brand-400 flex items-center gap-1">
+                  <i data-lucide="github" class="w-3.5 h-3.5"></i> GitHub
+                </a>
+                <span>•</span>
+                <span class="flex items-center gap-1 text-slate-400">
+                  <i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Curitiba, Brasil
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <button onclick="window.print()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-xs font-semibold px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+              <i data-lucide="printer" class="w-4 h-4"></i>
+              <span>Imprimir / Salvar PDF</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 3-Pillar Executive Summary -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+          
+          <div class="p-5 rounded-2xl bg-surface-900/60 border border-slate-800/80 hover:border-slate-700 transition">
+            <div class="flex items-center gap-2 text-brand-400 text-xs font-bold uppercase tracking-wider mb-2">
+              <i data-lucide="compass" class="w-4 h-4"></i>
+              1. O Contexto 0→1
+            </div>
+            <p class="text-sm text-slate-300 leading-relaxed">
+              Criação do <strong>Meu Barzin</strong>, marketplace conversacional no WhatsApp com modelo de assinatura <em>"Meu Barzin Pass"</em> (R$ 19,90/mês com benefício "Compre 1, Leve 2").
+            </p>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-surface-900/60 border border-slate-800/80 hover:border-slate-700 transition">
+            <div class="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider mb-2">
+              <i data-lucide="layers" class="w-4 h-4"></i>
+              2. O Desafio Two-Sided
+            </div>
+            <p class="text-sm text-slate-300 leading-relaxed">
+              O problema clássico do "ovo ou galinha": validar o modelo com frequentadores sem verba de mídia paga e recrutar bares parceiros sem garantia prévia de volume.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-surface-900/60 border border-slate-800/80 hover:border-slate-700 transition">
+            <div class="flex items-center gap-2 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-2">
+              <i data-lucide="target" class="w-4 h-4"></i>
+              3. O Aprendizado Central
+            </div>
+            <p class="text-sm text-slate-300 leading-relaxed">
+              Validação forte de atratividade da IA (505 leads), diagnóstico do gargalo de latência (43.9% drop) e decisão de congelar roadmap para priorizar liquidez de supply.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- KPI Metric Cards Grid -->
+        <div class="grid grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4 pt-4">
+          
+          <div class="p-4 rounded-xl bg-gradient-to-b from-surface-850 to-surface-900 border border-slate-800 text-center relative overflow-hidden group hover:border-brand-500/40 transition">
+            <div class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">505</div>
+            <div class="text-xs font-semibold text-brand-400 mt-1">Leads Qualificados</div>
+            <div class="text-[11px] text-slate-400 mt-0.5">100% captação orgânica</div>
+          </div>
+
+          <div class="p-4 rounded-xl bg-gradient-to-b from-surface-850 to-surface-900 border border-slate-800 text-center relative overflow-hidden group hover:border-emerald-500/40 transition">
+            <div class="text-3xl sm:text-4xl font-extrabold text-emerald-400 tracking-tight">22.3%</div>
+            <div class="text-xs font-semibold text-slate-200 mt-1">Alto Engajamento</div>
+            <div class="text-[11px] text-slate-400 mt-0.5">4+ mensagens com a IA</div>
+          </div>
+
+          <div class="p-4 rounded-xl bg-gradient-to-b from-surface-850 to-surface-900 border border-slate-800 text-center relative overflow-hidden group hover:border-cyan-500/40 transition">
+            <div class="text-3xl sm:text-4xl font-extrabold text-cyan-400 tracking-tight">~0%</div>
+            <div class="text-xs font-semibold text-slate-200 mt-1">Taxa de Alucinação</div>
+            <div class="text-[11px] text-slate-400 mt-0.5">RAG estruturado em JSON</div>
+          </div>
+
+          <div class="p-4 rounded-xl bg-gradient-to-b from-surface-850 to-surface-900 border border-slate-800 text-center relative overflow-hidden group hover:border-purple-500/40 transition">
+            <div class="text-3xl sm:text-4xl font-extrabold text-purple-400 tracking-tight">2</div>
+            <div class="text-xs font-semibold text-slate-200 mt-1">Parceiros Âncora B2B</div>
+            <div class="text-[11px] text-slate-400 mt-0.5">Gal Gastrobar & Officina</div>
+          </div>
+
+          <div class="col-span-2 lg:col-span-1 p-4 rounded-xl bg-gradient-to-b from-rose-950/30 to-surface-900 border border-rose-900/40 text-center relative overflow-hidden group hover:border-rose-500/40 transition">
+            <div class="text-3xl sm:text-4xl font-extrabold text-rose-400 tracking-tight">43.9%</div>
+            <div class="text-xs font-semibold text-rose-300 mt-1">Drop na 1ª Resposta</div>
+            <div class="text-[11px] text-slate-400 mt-0.5">Gargalo de latência diagnosticado</div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- STEP 1: OPPORTUNITY SOLUTION TREE -->
+    <section id="ost" class="space-y-6 pt-6 border-t border-slate-800/80">
+      
+      <div class="flex items-center gap-3">
+        <span class="w-8 h-8 rounded-lg bg-brand-500/20 text-brand-400 font-mono font-bold flex items-center justify-center border border-brand-500/30">1</span>
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">O Mapa de Oportunidades (Opportunity Solution Tree)</h2>
+          <p class="text-sm text-slate-400">Framework de Teresa Torres adaptado por Monica Possel (FoundersPM / PMAC)</p>
+        </div>
+      </div>
+
+      <!-- Strategy Callout -->
+      <div class="p-5 rounded-2xl bg-surface-900 border border-slate-800 space-y-3">
+        <div class="flex items-center gap-2 text-sm font-bold text-brand-400">
+          <i data-lucide="crosshair" class="w-4 h-4"></i>
+          Outcome de Negócio Desejado
+        </div>
+        <p class="text-sm sm:text-base text-slate-200">
+          <strong>Validar a atratividade e retenção do modelo de assinatura de bares com CAC zero (orgânico) antes de captar investimento externo ou codificar um aplicativo móvel nativo.</strong>
+        </p>
+      </div>
+
+      <!-- Opportunities Mapping Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        
+        <div class="p-5 rounded-2xl bg-surface-900/70 border border-slate-800 space-y-3">
+          <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-400">
+            <i data-lucide="user" class="w-4 h-4"></i> Oportunidade Usuário 1
+          </div>
+          <h4 class="text-sm font-semibold text-white">Descoberta Lenta & Fragmentada</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            "Frequentadores perdem muito tempo pesquisando bares que combinam com o momento (happy hour corporativo, encontro a dois, pet friendly, cerveja artesanal, música ao vivo)."
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-surface-900/70 border border-slate-800 space-y-3">
+          <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-400">
+            <i data-lucide="wallet" class="w-4 h-4"></i> Oportunidade Usuário 2
+          </div>
+          <h4 class="text-sm font-semibold text-white">Custo Alto & Falta de Incentivo</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            "Frequentadores acham caro sair todo fim de semana e não possuem incentivo financeiro recorrente que justifique explorar novos bares na cidade."
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-surface-900/70 border border-slate-800 space-y-3">
+          <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-purple-400">
+            <i data-lucide="store" class="w-4 h-4"></i> Oportunidade B2B (Bares)
+          </div>
+          <h4 class="text-sm font-semibold text-white">Ociosidade em Dias Úteis</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            "Bares sofrem com mesas vazias de terça a quinta-feira e dependem de promoções pontuais que geram clientes esporádicos sem previsibilidade de receita recorrente."
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Interactive Mermaid Diagram -->
+      <div class="p-6 rounded-2xl bg-surface-900 border border-slate-800 space-y-4">
+        <div class="flex items-center justify-between">
+          <h3 class="text-base font-bold text-white flex items-center gap-2">
+            <i data-lucide="git-branch" class="w-4 h-4 text-brand-400"></i>
+            Hierarquia do Mapa de Oportunidades & Soluções Divergentes
+          </h3>
+          <span class="text-xs text-slate-400 font-mono">Renderização Mermaid.js</span>
+        </div>
+
+        <div class="overflow-x-auto py-4">
+          <div class="mermaid text-center">
+graph TD
+    classDef outcome fill:#1e293b,stroke:#3b82f6,stroke-width:2px,color:#fff;
+    classDef opportunity fill:#0f172a,stroke:#64748b,stroke-width:1.5px,color:#e2e8f0;
+    classDef solution fill:#022c22,stroke:#10b981,stroke-width:2px,color:#fff;
+    classDef discarded fill:#3f1d24,stroke:#ef4444,stroke-width:1px,color:#fca5a5;
+
+    OUT["🎯 OUTCOME DE NEGÓCIO<br/>Validar tração, retenção e modelo de assinatura<br/>com CAC zero antes de codificar app nativo"]:::outcome
+
+    OP1["💡 Oportunidade Usuário 1<br/>Atrito e lentidão na descoberta<br/>de bares pelo momento desejado"]:::opportunity
+    OP2["💡 Oportunidade Usuário 2<br/>Custo alto de saída e ausência<br/>de incentivo à experimentação"]:::opportunity
+    OP3["💡 Oportunidade B2B (Bares)<br/>Mesas ociosas de terça a quinta<br/>e sem receita recorrente"]:::opportunity
+
+    OUT --> OP1
+    OUT --> OP2
+    OUT --> OP3
+
+    SOL_A["❌ Solução A: App Nativo iOS/Android<br/>(Custo > R$ 50k, 12 semanas, atrito de download)"]:::discarded
+    SOL_B["❌ Solução B: Guia PDF + Instagram<br/>(Estático, sem inteligência, sem modelo de assinatura)"]:::discarded
+    SOL_C["✅ Solução C: Agente IA WhatsApp + Pass<br/>(Zero fricção de download, RAG em tempo real, Low-Code)"]:::solution
+
+    OP1 --> SOL_A
+    OP1 --> SOL_B
+    OP1 --> SOL_C
+
+    OP2 --> SOL_A
+    OP2 --> SOL_C
+
+    OP3 --> SOL_A
+    OP3 --> SOL_C
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- STEP 2: SCALE MATRIX -->
+    <section id="scale" class="space-y-6 pt-6 border-t border-slate-800/80">
+      
+      <div class="flex items-center gap-3">
+        <span class="w-8 h-8 rounded-lg bg-brand-500/20 text-brand-400 font-mono font-bold flex items-center justify-center border border-brand-500/30">2</span>
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Etapa 2: Priorização Estratégica via Matriz SCALE</h2>
+          <p class="text-sm text-slate-400">Framework de Tomada de Decisão para Founders (Monica Possel)</p>
+        </div>
+      </div>
+
+      <div class="p-5 rounded-2xl bg-surface-900 border border-slate-800 space-y-3">
+        <p class="text-sm text-slate-300 leading-relaxed">
+          Para evitar o erro clássico de startups em estágio inicial (construir produtos pesados antes de validar premissas fundamentais), apliquei a <strong>Matriz SCALE</strong>. O objetivo é pontuar soluções divergentes sob cinco dimensões críticas:
+        </p>
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 text-xs font-medium text-slate-300 pt-2">
+          <div class="p-2.5 rounded-lg bg-surface-850 border border-slate-800">
+            <strong class="text-brand-400 block text-sm">S</strong> Solução Clara
+          </div>
+          <div class="p-2.5 rounded-lg bg-surface-850 border border-slate-800">
+            <strong class="text-emerald-400 block text-sm">C</strong> Conhecimento Gerado
+          </div>
+          <div class="p-2.5 rounded-lg bg-surface-850 border border-slate-800">
+            <strong class="text-cyan-400 block text-sm">A</strong> Agilidade de Execução
+          </div>
+          <div class="p-2.5 rounded-lg bg-surface-850 border border-slate-800">
+            <strong class="text-purple-400 block text-sm">L</strong> Levantamento da Escala
+          </div>
+          <div class="p-2.5 rounded-lg bg-surface-850 border border-slate-800">
+            <strong class="text-amber-400 block text-sm">E</strong> Efeito WOW
+          </div>
+        </div>
+      </div>
+
+      <!-- SCALE Comparison Table -->
+      <div class="overflow-x-auto rounded-2xl border border-slate-800 bg-surface-900">
+        <table class="w-full text-left border-collapse text-sm">
+          <thead>
+            <tr class="border-b border-slate-800 bg-surface-850 text-slate-400 font-semibold text-xs uppercase tracking-wider">
+              <th class="p-4">Solução Candidata</th>
+              <th class="p-4 text-center">S</th>
+              <th class="p-4 text-center">C</th>
+              <th class="p-4 text-center">A</th>
+              <th class="p-4 text-center">L</th>
+              <th class="p-4 text-center">E</th>
+              <th class="p-4 text-center">Total</th>
+              <th class="p-4">Decisão de Produto & Racional</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800/80">
+            
+            <!-- Row 1: App Nativo -->
+            <tr class="hover:bg-slate-800/40 transition">
+              <td class="p-4 font-semibold text-slate-200">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="smartphone" class="w-4 h-4 text-slate-400"></i>
+                  <span>App Nativo iOS/Android</span>
+                </div>
+              </td>
+              <td class="p-4 text-center font-mono">4</td>
+              <td class="p-4 text-center font-mono">3</td>
+              <td class="p-4 text-center font-mono text-rose-400 font-bold">1</td>
+              <td class="p-4 text-center font-mono">5</td>
+              <td class="p-4 text-center font-mono">4</td>
+              <td class="p-4 text-center font-mono font-bold text-slate-300">17 / 25</td>
+              <td class="p-4 text-xs text-slate-400">
+                <span class="inline-block px-2 py-0.5 rounded bg-rose-950/60 text-rose-400 border border-rose-800/40 font-semibold mb-1">Descartada</span><br>
+                Custo de desenvolvimento > R$ 50k, 12 semanas até o 1º usuário e taxa de atrito brutal de download nas App Stores.
+              </td>
+            </tr>
+
+            <!-- Row 2: Guia PDF -->
+            <tr class="hover:bg-slate-800/40 transition">
+              <td class="p-4 font-semibold text-slate-200">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="file-text" class="w-4 h-4 text-slate-400"></i>
+                  <span>Guia Estático PDF + Redes</span>
+                </div>
+              </td>
+              <td class="p-4 text-center font-mono">3</td>
+              <td class="p-4 text-center font-mono text-rose-400">2</td>
+              <td class="p-4 text-center font-mono text-emerald-400 font-bold">5</td>
+              <td class="p-4 text-center font-mono">2</td>
+              <td class="p-4 text-center font-mono text-rose-400">1</td>
+              <td class="p-4 text-center font-mono font-bold text-slate-300">13 / 25</td>
+              <td class="p-4 text-xs text-slate-400">
+                <span class="inline-block px-2 py-0.5 rounded bg-rose-950/60 text-rose-400 border border-rose-800/40 font-semibold mb-1">Descartada</span><br>
+                Fácil de criar, mas não gera dados conversacionais, não permite personalização e não sustenta modelo de assinatura recorrente.
+              </td>
+            </tr>
+
+            <!-- Row 3: Agente WhatsApp (Vencedora) -->
+            <tr class="bg-brand-500/5 hover:bg-brand-500/10 transition border-l-4 border-l-brand-500">
+              <td class="p-4 font-bold text-white">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="bot" class="w-4 h-4 text-brand-400"></i>
+                  <span>Agente IA WhatsApp + Pass</span>
+                </div>
+              </td>
+              <td class="p-4 text-center font-mono text-emerald-400 font-bold">5</td>
+              <td class="p-4 text-center font-mono text-emerald-400 font-bold">5</td>
+              <td class="p-4 text-center font-mono text-emerald-400 font-bold">5</td>
+              <td class="p-4 text-center font-mono font-bold">4</td>
+              <td class="p-4 text-center font-mono font-bold">4</td>
+              <td class="p-4 text-center font-mono font-extrabold text-brand-400 text-base">23 / 25</td>
+              <td class="p-4 text-xs text-slate-200">
+                <span class="inline-block px-2 py-0.5 rounded bg-emerald-950/80 text-emerald-300 border border-emerald-700/60 font-semibold mb-1">Vencedora do Ciclo</span><br>
+                Pontuação máxima em <strong>Agilidade (A: 5)</strong> e <strong>Conhecimento Gerado (C: 5)</strong>. Canal de atrito zero para o usuário brasileiro e telemetria de mensagens em tempo real.
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+    </section>
+
+    <!-- STEP 3: HYPOTHESIS CANVAS -->
+    <section id="canvas" class="space-y-6 pt-6 border-t border-slate-800/80">
+      
+      <div class="flex items-center gap-3">
+        <span class="w-8 h-8 rounded-lg bg-brand-500/20 text-brand-400 font-mono font-bold flex items-center justify-center border border-brand-500/30">3</span>
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Etapa 3: Hypothesis Canvas Preenchido</h2>
+          <p class="text-sm text-slate-400">Canvas Canônico de Experimentos de Produto de Monica Possel (8 Blocos)</p>
+        </div>
+      </div>
+
+      <!-- 8 Blocks Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        
+        <!-- Bloco 1 -->
+        <div class="p-5 rounded-2xl bg-surface-900 border border-slate-800 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-brand-400">1. Assumption & Motivations</span>
+            <span class="text-xs px-2 py-0.5 rounded bg-slate-800 text-slate-400">Why / How / What</span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            <strong>Why (Problema):</strong> Frequentadores gastam tempo excessivo tentando descobrir o bar certo e acham caro sair com frequência. Bares sofrem com capacidade ociosa de terça a quinta.<br>
+            <strong>How (Mecânica):</strong> Um sommelier virtual inteligente no WhatsApp com busca conversacional e clube de benefícios por assinatura.<br>
+            <strong>What (Solução):</strong> Agente "Capizin" + "Meu Barzin Pass" (R$ 19,90/mês com "Compre 1 drink/prato, Leve 2").
+          </p>
+        </div>
+
+        <!-- Bloco 2 -->
+        <div class="p-5 rounded-2xl bg-surface-900 border border-slate-800 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-brand-400">2. Data (Sinais & Ativos)</span>
+            <span class="text-xs px-2 py-0.5 rounded bg-slate-800 text-slate-400">Single Source of Truth</span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            • Base proprietária de <strong>quase 200 bares de Curitiba</strong> extraída e higienizada via Web Scraping (Python / BeautifulSoup / Playwright).<br>
+            • Construção de comunidade de <strong>2.000+ seguidores orgânicos no Instagram</strong> para ativação inicial.<br>
+            • Fechamento prévio de <strong>2 parcerias âncora B2B</strong> de prestígio (Gal Gastrobar e Officina Resto Bar) como sinal de qualidade.
+          </p>
+        </div>
+
+        <!-- Bloco 3 -->
+        <div class="p-5 rounded-2xl bg-surface-900 border border-slate-800 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-brand-400">3. Users & Customers</span>
+            <span class="text-xs px-2 py-0.5 rounded bg-slate-800 text-slate-400">ICP & Persona</span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            <strong>Persona Primária:</strong> Jovens adultos e profissionais liberais de 21 a 35 anos em Curitiba, que saem para beber/jantar 2+ vezes por semana e usam o WhatsApp intensamente no dia a dia.<br>
+            <strong>Persona Secundária (B2B):</strong> Donos e gerentes de gastrobares de médio a alto padrão que necessitam de ocupação previsível fora dos horários de pico.
+          </p>
+        </div>
+
+        <!-- Bloco 4: Marty Cagan Risks -->
+        <div class="p-5 rounded-2xl bg-surface-900 border border-slate-800 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-brand-400">4. Risks (4 Dimensões de Cagan)</span>
+            <span class="text-xs px-2 py-0.5 rounded bg-slate-800 text-slate-400">Mitigação Prévia</span>
+          </div>
+          <ul class="text-xs text-slate-300 space-y-1 list-disc list-inside">
+            <li><strong>Risco de Valor:</strong> Usuários teriam interesse em manter diálogo contínuo com um sommelier virtual?</li>
+            <li><strong>Risco de Usabilidade:</strong> Conversa natural no WhatsApp guia o usuário mais rápido que um cardápio web?</li>
+            <li><strong>Risco de Viabilidade Técnica:</strong> Latência das integrações e perigo de alucinação de dados pela IA.</li>
+            <li><strong>Risco de Negócio:</strong> Densidade inicial de bares sustentará o valor percebido de R$ 19,90/mês?</li>
+          </ul>
+        </div>
+
+        <!-- Bloco 5: The Experiment (Full Width) -->
+        <div class="md:col-span-2 p-5 rounded-2xl bg-gradient-to-r from-surface-850 to-surface-900 border border-brand-500/30 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-brand-400 flex items-center gap-1.5">
+              <i data-lucide="flask-conical" class="w-4 h-4"></i>
+              5. The Experiment (Fórmula Canônica)
+            </span>
+            <span class="text-xs px-2.5 py-0.5 rounded-full bg-brand-500/10 text-brand-400 border border-brand-500/20 font-semibold">Hipótese Central</span>
+          </div>
+          <blockquote class="text-sm text-slate-200 border-l-2 border-brand-500 pl-4 py-1 italic leading-relaxed">
+            "<strong>Acreditamos que:</strong> Se oferecermos um sommelier virtual no WhatsApp com recomendações hiperpersonalizadas e um passe de vantagens ('compre 1, leve 2'), geraremos demanda orgânica recorrente sem investimento em mídia paga.<br>
+            <strong>Testaremos com:</strong> Arquitetura Low-Code ManyChat + n8n + Supabase RAG.<br>
+            <strong>Por quanto tempo:</strong> 60 dias de operação contínua.<br>
+            <strong>E mediremos:</strong> Volume de leads captados, taxa de engajamento (4+ mensagens trocadas) e taxa de drop na primeira resposta.<br>
+            <strong>Critério de sucesso:</strong> ≥ 300 leads orgânicos e ≥ 15% de engajamento alto."
+          </blockquote>
+        </div>
+
+        <!-- Bloco 6 -->
+        <div class="p-5 rounded-2xl bg-surface-900 border border-slate-800 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">6. Results (Evidências Reais)</span>
+            <span class="text-xs px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800/40">Superou Metas</span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            • <strong>505 leads qualificados</strong> captados (168% acima da meta de 300 leads).<br>
+            • <strong>22.3% de taxa de alto engajamento</strong> (superou com folga o sarrafo de 15%).<br>
+            • <strong>~0% de taxa de alucinação</strong> reportada na IA graças ao validador estruturado.<br>
+            • <strong>43.9% de abandono imediato na 1ª mensagem</strong> por latência de API do fluxo.
+          </p>
+        </div>
+
+        <!-- Bloco 7 -->
+        <div class="p-5 rounded-2xl bg-surface-900 border border-slate-800 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-400">7. Conclusion (Maturidade de PM)</span>
+            <span class="text-xs px-2 py-0.5 rounded bg-amber-950 text-amber-400 border border-amber-800/40">Leitura Fria</span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            • <strong>Validada com sucesso:</strong> A atratividade do concierge conversacional e o valor percebido do benefício "Compre 1, Leve 2".<br>
+            • <strong>Gargalo Crítico Diagnosticado:</strong> Latência de resposta inicial causa atrito fatal no WhatsApp.<br>
+            • <strong>Inconclusivo / Bloqueado:</strong> A conversão em assinantes em escala travou devido à baixa liquidez e dispersão geográfica dos bares parceiros.
+          </p>
+        </div>
+
+        <!-- Bloco 8: Next Steps (Full Width) -->
+        <div class="md:col-span-2 p-5 rounded-2xl bg-surface-900 border border-slate-800 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-1.5">
+              <i data-lucide="arrow-right-circle" class="w-4 h-4"></i>
+              8. Next Steps & Decisão de Produto Fundamentada
+            </span>
+            <span class="text-xs px-2 py-0.5 rounded bg-cyan-950 text-cyan-400 border border-cyan-800/40">Pivot Estratégico</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Em vez de gastar capital atraindo mais demanda ou codificando novas features de software, a decisão estratégica fundamentada nos dados foi <strong>pivotar para uma abordagem Supply-First</strong>: adensar a oferta fechando de 8 a 12 bares em um único raio geográfico concentrado (ex.: Polo Gastronômico do Batel ou Rua Itupava), garantindo que qualquer assinante no raio de 1 km tenha opções suficientes para amortizar os R$ 19,90 da assinatura logo na 1ª semana.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- STEP 4: RIGOR ANALÍTICO & ENGENHARIA DE PRODUTO -->
+    <section id="rigor" class="space-y-6 pt-6 border-t border-slate-800/80">
+      
+      <div class="flex items-center gap-3">
+        <span class="w-8 h-8 rounded-lg bg-brand-500/20 text-brand-400 font-mono font-bold flex items-center justify-center border border-brand-500/30">4</span>
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Rigor Analítico: O Gargalo dos 43.9% e Arquitetura Zero Hallucination</h2>
+          <p class="text-sm text-slate-400">Diagnóstico de Telemetria, Decisões de Engenharia de Produto e Trade-offs</p>
+        </div>
+      </div>
+
+      <!-- Deep Dive 1: Funil e Latência -->
+      <div class="p-6 rounded-2xl bg-surface-900 border border-slate-800 space-y-5">
+        
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div class="flex items-center gap-2">
+            <i data-lucide="alert-triangle" class="w-5 h-5 text-rose-400"></i>
+            <h3 class="text-base sm:text-lg font-bold text-white">Análise do Gargalo: Latência de API vs Modelo Mental do Usuário</h3>
+          </div>
+          <span class="text-xs px-2.5 py-1 rounded bg-rose-950/60 text-rose-300 border border-rose-800/50 font-mono font-semibold">
+            Drop-off de 43.9%
+          </span>
+        </div>
+
+        <p class="text-sm text-slate-300 leading-relaxed">
+          A maioria dos times de produto cai na armadilha de adicionar novas funcionalidades quando os usuários abandonam o produto logo no início. No Meu Barzin, extraí as conversas de WhatsApp e os logs de execução do n8n para realizar uma auditoria analítica rigorosa:
+        </p>
+
+        <!-- Latency Breakdown Waterfall -->
+        <div class="p-4 rounded-xl bg-surface-850 border border-slate-800 space-y-3 font-mono text-xs">
+          <div class="text-slate-400 font-bold uppercase tracking-wider mb-2">Cascata de Tempo de Resposta da 1ª Interação:</div>
+          
+          <div class="space-y-2">
+            <div class="flex items-center justify-between text-slate-300">
+              <span>1. Webhook ManyChat → VPS n8n (Fila de eventos)</span>
+              <span class="text-amber-400">~1.2s</span>
+            </div>
+            <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+              <div class="bg-amber-400 h-full" style="width: 15%"></div>
+            </div>
+
+            <div class="flex items-center justify-between text-slate-300">
+              <span>2. Busca no Supabase (Consulta relacional a 200 bares)</span>
+              <span class="text-amber-400">~1.8s</span>
+            </div>
+            <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+              <div class="bg-amber-400 h-full" style="width: 20%"></div>
+            </div>
+
+            <div class="flex items-center justify-between text-slate-300">
+              <span>3. Inferência LLM (Geração de prompt estrito)</span>
+              <span class="text-rose-400">~4.5s</span>
+            </div>
+            <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+              <div class="bg-rose-400 h-full" style="width: 50%"></div>
+            </div>
+
+            <div class="flex items-center justify-between text-slate-300">
+              <span>4. Validação Dupla pós-geração + Envio ao WhatsApp</span>
+              <span class="text-rose-400">~2.5s</span>
+            </div>
+            <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+              <div class="bg-rose-400 h-full" style="width: 30%"></div>
+            </div>
+          </div>
+
+          <div class="pt-2 border-t border-slate-800 flex justify-between font-bold text-slate-200">
+            <span>Tempo Total Acumulado Sem Cache:</span>
+            <span class="text-rose-400 font-mono text-sm">~10.0 a 14.5 segundos</span>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-brand-500/10 border border-brand-500/20 text-xs sm:text-sm text-slate-200 leading-relaxed">
+          <strong class="text-brand-400 block mb-1">A Decisão de Produto do PM:</strong>
+          No WhatsApp, um silêncio de 10 segundos destrói a ilusão de conversa fluida — o usuário assume que o canal travou e fecha a conversa. A decisão madura não foi codificar mais recursos, mas <strong>congelar o roadmap de features</strong> para:
+          <ol class="list-decimal list-inside mt-2 space-y-1 text-slate-300">
+            <li>Inserir mensagem de resposta síncrona em &lt; 800ms disparada direto pelo ManyChat (<em>"O Capizin já está farejando as mesas..."</em>);</li>
+            <li>Implementar Redis Cache para as 50 consultas mais frequentes, derrubando a latência média para <strong>&lt; 3 segundos</strong>.</li>
+          </ol>
+        </div>
+
+      </div>
+
+      <!-- Deep Dive 2: Arquitetura Zero Hallucination -->
+      <div class="p-6 rounded-2xl bg-surface-900 border border-slate-800 space-y-4">
+        
+        <div class="flex items-center gap-2">
+          <i data-lucide="shield-check" class="w-5 h-5 text-emerald-400"></i>
+          <h3 class="text-base sm:text-lg font-bold text-white">Arquitetura Zero Hallucination: Por que RAG sobre Texto Puro Falha em Bares</h3>
+        </div>
+
+        <p class="text-sm text-slate-300 leading-relaxed">
+          Ao recomendar estabelecimentos gastronômicos, uma única alucinação de horário ou benefício destrói a credibilidade da marca. Rejeitei o modelo padrão de RAG baseado em embeddings vetoriais de texto livre e implementei uma arquitetura determinística de 2 camadas:
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          
+          <div class="p-4 rounded-xl bg-surface-850 border border-slate-800 space-y-2">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-emerald-400">1. Retrieval Relacional em JSON Estruturado</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Os 200 bares de Curitiba foram modelados em schemas JSON estritos no Supabase com campos determinísticos: <code class="text-brand-400 font-mono">operating_hours{}</code>, <code class="text-brand-400 font-mono">menu_highlights[]</code>, <code class="text-brand-400 font-mono">ambiance_tags[]</code> e <code class="text-brand-400 font-mono">pass_discount_rules{}</code>. A IA não pesquisa texto solto; ela recebe nós estruturados.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-surface-850 border border-slate-800 space-y-2">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-emerald-400">2. Guardrails Estritos & Validador Duplo</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              O modelo foi parametrizado com <code class="text-brand-400 font-mono">temperature: 0</code> e prompts com regras rígidas de recusa: se o dado não constar no schema, a IA é obrigada a dizer "não tenho essa informação" e acionar um fallback gracioso. Um nó validador secundário checava a conformidade antes do envio.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Sample JSON Snippet -->
+        <div class="p-4 rounded-xl bg-surface-950 border border-slate-800 font-mono text-xs overflow-x-auto">
+          <div class="text-slate-400 text-[11px] mb-2 font-bold flex items-center justify-between">
+            <span>// Exemplo de Schema JSON no Supabase (Curitiba Gastronômica)</span>
+            <span class="text-emerald-400">Grounding Verificado</span>
+          </div>
+          <pre class="text-emerald-300/90 leading-relaxed">
+{
+  "id": "bar-042",
+  "name": "Gal Gastrobar",
+  "neighborhood": "Batel - Curitiba",
+  "operating_hours": {
+    "tue_to_thu": "18:00 - 00:00",
+    "fri_to_sat": "18:00 - 02:00",
+    "sun": "fechado"
+  },
+  "attributes": {
+    "pet_friendly": true,
+    "outdoor_tables": true,
+    "craft_beer_taps": 8,
+    "live_music": false
+  },
+  "meu_barzin_pass": {
+    "active": true,
+    "benefit": "Compre 1 Drink Autoral, Ganhe o Segundo",
+    "valid_days": ["tue", "wed", "thu"]
+  }
+}</pre>
+        </div>
+
+      </div>
+
+      <!-- Deep Dive 3: Marketplace Dynamics -->
+      <div class="p-6 rounded-2xl bg-surface-900 border border-slate-800 space-y-4">
+        
+        <div class="flex items-center gap-2">
+          <i data-lucide="network" class="w-5 h-5 text-purple-400"></i>
+          <h3 class="text-base sm:text-lg font-bold text-white">Dinâmica de Marketplace Two-Sided: A Armadilha da Liquidez Local</h3>
+        </div>
+
+        <p class="text-sm text-slate-300 leading-relaxed">
+          Embora tenhamos fechado com dois dos mais renomados bares de Curitiba (<strong>Gal Gastrobar</strong> e <strong>Officina Resto Bar</strong>), a validação revelou que em entretenimento noturno urbano, <strong>reputação de supply não substitui densidade geográfica</strong>.
+        </p>
+
+        <div class="p-4 rounded-xl bg-purple-950/20 border border-purple-900/40 text-xs sm:text-sm text-slate-300 space-y-2">
+          <strong class="text-purple-300 block">O Insight de Produto:</strong>
+          Para um frequentador de bares pagar uma mensalidade de R$ 19,90/mês, ele precisa ter no mínimo 3 a 4 opções de bares parceiros dentro de um <strong>raio de conveniência de até 15 minutos</strong> do seu trajeto rotineiro. Ter parceiros de elite espalhados em bairros distantes gerava interesse e orgulho de marca, mas não a densidade necessária para o usuário perceber liquidez diária.
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- STEP 5: COMPETENCIES & STACK -->
+    <section id="skills" class="space-y-6 pt-6 border-t border-slate-800/80">
+      
+      <div class="flex items-center gap-3">
+        <span class="w-8 h-8 rounded-lg bg-brand-500/20 text-brand-400 font-mono font-bold flex items-center justify-center border border-brand-500/30">5</span>
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Competências Comprovadas & Stack Tecnológica</h2>
+          <p class="text-sm text-slate-400">Mapeamento Ontológico de Habilidades Práticas Demonstradas no Projeto</p>
+        </div>
+      </div>
+
+      <!-- Competencies Table -->
+      <div class="overflow-x-auto rounded-2xl border border-slate-800 bg-surface-900">
+        <table class="w-full text-left border-collapse text-sm">
+          <thead>
+            <tr class="border-b border-slate-800 bg-surface-850 text-slate-400 font-semibold text-xs uppercase tracking-wider">
+              <th class="p-4">Domínio de Produto</th>
+              <th class="p-4">Aplicação Prática no Case Meu Barzin</th>
+              <th class="p-4">Ferramental & Tecnologias</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800/80 text-xs sm:text-sm">
+            
+            <tr class="hover:bg-slate-800/40 transition">
+              <td class="p-4 font-bold text-brand-400">Product Discovery & OST</td>
+              <td class="p-4 text-slate-300">Condução de entrevistas de descoberta, mapeamento de dores de usuários e donos de bares com alinhamento de outcomes prévios.</td>
+              <td class="p-4 font-mono text-slate-400">Miro, OST (Teresa Torres / Monica Possel)</td>
+            </tr>
+
+            <tr class="hover:bg-slate-800/40 transition">
+              <td class="p-4 font-bold text-brand-400">Priorização Estratégica</td>
+              <td class="p-4 text-slate-300">Aplicação da técnica SCALE para mitigar o risco de construir um app móvel caro (> R$ 50k) sem PMF comprovado.</td>
+              <td class="p-4 font-mono text-slate-400">Matriz SCALE (FoundersPM / PMAC)</td>
+            </tr>
+
+            <tr class="hover:bg-slate-800/40 transition">
+              <td class="p-4 font-bold text-brand-400">Conversational AI & RAG</td>
+              <td class="p-4 text-slate-300">Desenho do agente "Capizin" com arquitetura Zero Hallucination, RAG estruturado em JSON e validador duplo pós-geração.</td>
+              <td class="p-4 font-mono text-slate-400">OpenAI API, Prompt Engineering, Temp: 0</td>
+            </tr>
+
+            <tr class="hover:bg-slate-800/40 transition">
+              <td class="p-4 font-bold text-brand-400">Product Architecture & Low-Code</td>
+              <td class="p-4 text-slate-300">Orquestração completa de microsserviços via webhooks conectando WhatsApp, n8n, Supabase e VPS própria.</td>
+              <td class="p-4 font-mono text-slate-400">ManyChat, n8n, Supabase/Postgres, VPS Contabo</td>
+            </tr>
+
+            <tr class="hover:bg-slate-800/40 transition">
+              <td class="p-4 font-bold text-brand-400">Product Analytics & Telemetria</td>
+              <td class="p-4 text-slate-300">Diagnóstico do gargalo de 43.9% de abandono por latência e congelamento consciente de roadmap para correção de UX de resposta.</td>
+              <td class="p-4 font-mono text-slate-400">PostgreSQL, SQL queries, Latency Tracing, Redis</td>
+            </tr>
+
+            <tr class="hover:bg-slate-800/40 transition">
+              <td class="p-4 font-bold text-brand-400">Growth Orgânico & GTM</td>
+              <td class="p-4 text-slate-300">Aquisição de 505 leads qualificados de topo de funil com CAC zero e crescimento de 2.000+ seguidores orgânicos no Instagram.</td>
+              <td class="p-4 font-mono text-slate-400">Meta Organic, DM Automations, Referral</td>
+            </tr>
+
+            <tr class="hover:bg-slate-800/40 transition">
+              <td class="p-4 font-bold text-brand-400">Desenvolvimento B2B</td>
+              <td class="p-4 text-slate-300">Prospecção e negociação direta de parcerias âncora com os bares mais conceituados de Curitiba (Gal Gastrobar e Officina).</td>
+              <td class="p-4 font-mono text-slate-400">B2B Pitching, Negociação de Vouchers "1+1"</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+    </section>
+
+    <!-- FOOTER & EXECUTIVE STATEMENT -->
+    <footer class="pt-10 border-t border-slate-800 space-y-8">
+      
+      <div class="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-surface-900 to-surface-850 border border-slate-800 relative overflow-hidden">
+        
+        <div class="relative z-10 space-y-4 max-w-3xl">
+          <span class="text-xs font-bold uppercase tracking-wider text-brand-400 flex items-center gap-1.5">
+            <i data-lucide="sparkles" class="w-4 h-4"></i>
+            Filosofia de Liderança de Produto
+          </span>
+          <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight">
+            "Construir produtos digitais não é sobre empilhar funcionalidades no roadmap; é sobre isolar os gargalos críticos do sistema, validar o valor percebido com o menor tempo possível e ter a disciplina analítica de direcionar os recursos onde o aprendizado gera tração de verdade."
+          </h3>
+          <p class="text-sm text-slate-400">
+            — <strong>Kevin Augusto Vieira</strong>, Co-Founder & Product Manager
+          </p>
+        </div>
+
+        <div class="mt-6 pt-6 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-400">
+          <div class="flex items-center gap-3">
+            <span>© 2026 Kevin Augusto Vieira</span>
+            <span>•</span>
+            <span>Case Study Oficial</span>
+            <span>•</span>
+            <a href="https://pmradar.founderspm.com.br/case/cef86cff-658d-49aa-a955-facda01e601f" target="_blank" rel="noopener" class="text-brand-400 hover:underline">
+              PMRadar ID: cef86cff
+            </a>
+          </div>
+
+          <div class="flex items-center gap-4 text-slate-300 font-semibold">
+            <a href="https://www.linkedin.com/in/kevin-augusto/" target="_blank" rel="noopener" class="hover:text-white transition flex items-center gap-1">
+              <i data-lucide="linkedin" class="w-4 h-4"></i> LinkedIn
+            </a>
+            <a href="https://github.com/keevinvieeira" target="_blank" rel="noopener" class="hover:text-white transition flex items-center gap-1">
+              <i data-lucide="github" class="w-4 h-4"></i> GitHub
+            </a>
+            <a href="mailto:kevin.aug.vieira@gmail.com" class="hover:text-white transition flex items-center gap-1">
+              <i data-lucide="mail" class="w-4 h-4"></i> Contato
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </footer>
+
+  </main>
+
+  <!-- Interactive Scripts -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Scroll Progress Bar
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('scroll-progress').style.width = scrolled + '%';
+    });
+
+    // Copy Case URL to Clipboard
+    function copyCaseUrl() {
+      const url = window.location.href;
+      navigator.clipboard.writeText(url).then(() => {
+        const btnText = document.getElementById('share-btn-text');
+        const originalText = btnText.innerText;
+        btnText.innerText = 'Copiado!';
+        setTimeout(() => {
+          btnText.innerText = originalText;
+        }, 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>
