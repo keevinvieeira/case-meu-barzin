@@ -310,6 +310,89 @@
         </div>
       </div>
 
+      <!-- (?) Metodologia do Mapa de Oportunidades (Campo Oculto Expansível) -->
+      <details class="group bg-surface-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-brand-500/40 transition shadow-lg">
+        <summary class="p-4 sm:p-5 flex items-center justify-between cursor-pointer list-none select-none hover:bg-surface-850/60 transition">
+          <div class="flex items-center gap-3">
+            <span class="w-7 h-7 rounded-full bg-brand-500/20 text-brand-400 font-bold text-xs flex items-center justify-center border border-brand-500/30 group-open:bg-brand-500 group-open:text-white transition">?</span>
+            <div>
+              <span class="text-sm sm:text-base font-bold text-white group-hover:text-brand-400 transition">Entenda a Metodologia: Como funciona e como preencher o Mapa de Oportunidades</span>
+              <p class="text-xs text-slate-400">Clique para expandir o guia prático do framework (Teresa Torres adaptado por Monica Possel)</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-brand-400 font-semibold hidden sm:inline group-open:hidden">Ver Explicação</span>
+            <span class="text-xs text-slate-400 font-semibold hidden group-open:inline">Recolher</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform duration-200"></i>
+          </div>
+        </summary>
+        
+        <div class="p-5 sm:p-6 border-t border-slate-800 bg-surface-950/50 space-y-5 text-sm leading-relaxed text-slate-300">
+          
+          <div class="space-y-2">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-brand-400 flex items-center gap-1.5">
+              <i data-lucide="compass" class="w-4 h-4"></i> O que é a Opportunity Solution Tree (OST)?
+            </h4>
+            <p class="text-xs sm:text-sm text-slate-300">
+              Criada por <strong>Teresa Torres</strong> (autora de <em>Continuous Discovery Habits</em>) e adaptada por <strong>Monica Possel (FoundersPM / PMAC)</strong> para founders e PMs de estágio inicial, a <strong>Árvore de Oportunidades</strong> é um mapa visual hierárquico que conecta um objetivo de negócio prioritário às dores reais dos clientes, forçando a equipe a explorar <strong>múltiplas soluções concorrentes</strong> antes de gastar recursos codificando software.
+            </p>
+          </div>
+
+          <!-- 4 Níveis -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5 pt-1">
+            
+            <div class="p-3.5 rounded-xl bg-surface-850 border border-slate-800 space-y-1.5">
+              <div class="flex items-center gap-2 text-xs font-bold text-blue-400 uppercase tracking-wider">
+                <span class="w-5 h-5 rounded-full bg-blue-500/20 flex items-center justify-center font-mono">1</span>
+                Desired Outcome (Resultado de Negócio)
+              </div>
+              <p class="text-xs text-slate-300">
+                <strong>Como preencher:</strong> Defina uma única métrica prioritária de aprendizado ou negócio para o ciclo (ex: <em>"Validar atratividade e modelo de assinatura com aquisição enxuta"</em>).<br>
+                <span class="text-rose-400 font-semibold">Erro comum:</span> Colocar funcionalidades aqui (ex: "Construir um app" é uma solução, nunca um outcome).
+              </p>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-surface-850 border border-slate-800 space-y-1.5">
+              <div class="flex items-center gap-2 text-xs font-bold text-amber-400 uppercase tracking-wider">
+                <span class="w-5 h-5 rounded-full bg-amber-500/20 flex items-center justify-center font-mono">2</span>
+                Opportunities (Dores e Fricções Reais)
+              </div>
+              <p class="text-xs text-slate-300">
+                <strong>Como preencher:</strong> Mapeie problemas, dores, atritos ou necessidades não atendidas descobertas em entrevistas e observação de campo.<br>
+                <span class="text-emerald-400 font-semibold">Em Marketplaces:</span> Separe claramente as dores da demanda (usuários) das dores da oferta (estabelecimentos parceiros).
+              </p>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-surface-850 border border-slate-800 space-y-1.5">
+              <div class="flex items-center gap-2 text-xs font-bold text-emerald-400 uppercase tracking-wider">
+                <span class="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center font-mono">3</span>
+                Solutions (Soluções Divergentes)
+              </div>
+              <p class="text-xs text-slate-300">
+                <strong>Como preencher:</strong> Gere no mínimo 2 a 3 soluções concorrentes para a MESMA dor mapeada. Isso combate o apego prematuro e força o time a comparar alternativas leves (No-Code/WhatsApp) contra alternativas caras (App Nativo).
+              </p>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-surface-850 border border-slate-800 space-y-1.5">
+              <div class="flex items-center gap-2 text-xs font-bold text-purple-400 uppercase tracking-wider">
+                <span class="w-5 h-5 rounded-full bg-purple-500/20 flex items-center justify-center font-mono">4</span>
+                Experiments (Testes de Hipótese)
+              </div>
+              <p class="text-xs text-slate-300">
+                <strong>Como preencher:</strong> Para a solução priorizada, desenhe o menor teste prático possível (ex: concierge no WhatsApp, protótipo interativo) para validar premissas de valor e usabilidade antes de escalar a engenharia.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-brand-500/10 border border-brand-500/20 text-xs text-slate-200">
+            <strong class="text-brand-400">Regra de Ouro da Monica Possel:</strong>
+            "Se o seu mapa tem apenas uma solução abaixo de cada oportunidade, você não está fazendo Discovery — você está apenas justificando o seu backlog pré-definido. A força do OST está em forçar o time a pensar em alternativas divergentes."
+          </div>
+
+        </div>
+      </details>
+
       <!-- Strategy Callout -->
       <div class="p-5 rounded-2xl bg-surface-900 border border-slate-800 space-y-3">
         <div class="flex items-center gap-2 text-sm font-bold text-brand-400">
@@ -413,6 +496,176 @@ graph TD
           <p class="text-sm text-slate-400">Framework de Tomada de Decisão para Founders (Monica Possel)</p>
         </div>
       </div>
+
+      <!-- (?) Metodologia da Matriz SCALE (Campo Oculto Expansível) -->
+      <details class="group bg-surface-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-brand-500/40 transition shadow-lg">
+        <summary class="p-4 sm:p-5 flex items-center justify-between cursor-pointer list-none select-none hover:bg-surface-850/60 transition">
+          <div class="flex items-center gap-3">
+            <span class="w-7 h-7 rounded-full bg-brand-500/20 text-brand-400 font-bold text-xs flex items-center justify-center border border-brand-500/30 group-open:bg-brand-500 group-open:text-white transition">?</span>
+            <div>
+              <span class="text-sm sm:text-base font-bold text-white group-hover:text-brand-400 transition">Entenda a Metodologia: Como funciona e como preencher a Matriz SCALE</span>
+              <p class="text-xs text-slate-400">Clique para expandir o guia prático com exemplos de cada letra do acrônimo (Monica Possel / FoundersPM)</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-brand-400 font-semibold hidden sm:inline group-open:hidden">Ver Explicação</span>
+            <span class="text-xs text-slate-400 font-semibold hidden group-open:inline">Recolher</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform duration-200"></i>
+          </div>
+        </summary>
+        
+        <div class="p-5 sm:p-6 border-t border-slate-800 bg-surface-950/50 space-y-6 text-sm leading-relaxed text-slate-300">
+          
+          <div class="space-y-2">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-brand-400 flex items-center gap-1.5">
+              <i data-lucide="scale" class="w-4 h-4"></i> O que é a Matriz SCALE?
+            </h4>
+            <p class="text-xs sm:text-sm text-slate-300">
+              Desenvolvida por <strong>Monica Possel (FoundersPM / PMAC)</strong>, a <strong>Matriz SCALE</strong> é uma ferramenta de priorização ágil criada especialmente para <strong>Founders, Startups em estágio 0→1 e Product Managers</strong>. Diferente de metodologias corporativas tradicionais (como RICE ou ICE), que exigem estimativas estatísticas complexas e grandes times de desenvolvimento, o SCALE avalia se a solução permite <strong>aprender rápido, gastar pouco runway e encantar o cliente no primeiro contato</strong>.
+            </p>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-surface-850 border border-slate-800 text-xs text-slate-300">
+            <strong class="text-white block mb-1">Como pontuar:</strong> Cada dimensão recebe uma nota de <strong>1 a 5</strong>. A pontuação total varia de <strong>5 a 25 pontos</strong>. Quanto maior a pontuação em Agilidade (A) e Conhecimento (C), mais indicada a solução é para o primeiro MVP.
+          </div>
+
+          <!-- As 5 Dimensões com Exemplos Práticos -->
+          <div class="space-y-3 pt-1">
+            <h5 class="text-xs font-bold uppercase tracking-wider text-slate-400">Guia Letra por Letra com Exemplos Práticos:</h5>
+            
+            <!-- S -->
+            <div class="p-4 rounded-xl bg-surface-850 border border-slate-800/80 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-sm text-brand-400 flex items-center gap-1.5">
+                  <span class="w-6 h-6 rounded bg-brand-500/20 text-brand-400 flex items-center justify-center font-mono text-xs">S</span>
+                  Solução Clara (Solution Clarity)
+                </span>
+                <span class="text-[11px] text-slate-400 font-mono">Escopo & Viabilidade</span>
+              </div>
+              <p class="text-xs text-slate-300">
+                <strong>O que mede:</strong> O nível de clareza do escopo, a viabilidade técnica e a certeza de como a solução resolve o problema sem ambiguidades ou premissas obscuras.
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs pt-1">
+                <div class="p-2 rounded bg-emerald-950/40 border border-emerald-800/30 text-emerald-300">
+                  <strong>✅ Exemplo Nota 5 (Alta Clareza):</strong> Um fluxo no WhatsApp com RAG para responder perguntas objetivas sobre 200 bares mapeados. Escopo cirúrgico e delimitado.
+                </div>
+                <div class="p-2 rounded bg-rose-950/40 border border-rose-800/30 text-rose-300">
+                  <strong>❌ Exemplo Nota 1 (Baixa Clareza):</strong> "Uma plataforma de IA que analisa emoções humanas em tempo real para recomendar experiências noturnas" (escopo vago, ninguém sabe onde começa ou termina o MVP).
+                </div>
+              </div>
+            </div>
+
+            <!-- C -->
+            <div class="p-4 rounded-xl bg-surface-850 border border-slate-800/80 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-sm text-emerald-400 flex items-center gap-1.5">
+                  <span class="w-6 h-6 rounded bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-mono text-xs">C</span>
+                  Conhecimento Gerado (Customer Knowledge / Awareness)
+                </span>
+                <span class="text-[11px] text-slate-400 font-mono">Taxa de Aprendizado</span>
+              </div>
+              <p class="text-xs text-slate-300">
+                <strong>O que mede:</strong> A capacidade da solução de gerar dados ricos, qualitativos e quantitativos sobre o comportamento, hábitos e objeções reais do usuário.
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs pt-1">
+                <div class="p-2 rounded bg-emerald-950/40 border border-emerald-800/30 text-emerald-300">
+                  <strong>✅ Exemplo Nota 5 (Alto Conhecimento):</strong> Conversa direta no WhatsApp. Você lê cada pergunta, gíria, objeção de preço, horário em que a pessoa sai e bairros preferidos em tempo real.
+                </div>
+                <div class="p-2 rounded bg-rose-950/40 border border-rose-800/30 text-rose-300">
+                  <strong>❌ Exemplo Nota 1 (Baixo Conhecimento):</strong> Um PDF estático baixado por formulário. Você obtém apenas o e-mail, mas não sabe se o usuário leu o guia, se foi ao bar ou o que achou.
+                </div>
+              </div>
+            </div>
+
+            <!-- A -->
+            <div class="p-4 rounded-xl bg-surface-850 border border-slate-800/80 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-sm text-cyan-400 flex items-center gap-1.5">
+                  <span class="w-6 h-6 rounded bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-mono text-xs">A</span>
+                  Agilidade de Execução (Lightness / Time-to-Market)
+                </span>
+                <span class="text-[11px] text-slate-400 font-mono">Velocidade sem Código Pesado</span>
+              </div>
+              <p class="text-xs text-slate-300">
+                <strong>O que mede:</strong> Quão rápido e barato o time consegue colocar a solução nas mãos do usuário, sem depender de meses de engenharia, contratações ou burocracia.
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs pt-1">
+                <div class="p-2 rounded bg-emerald-950/40 border border-emerald-800/30 text-emerald-300">
+                  <strong>✅ Exemplo Nota 5 (Máxima Agilidade):</strong> MVP Low-Code (ManyChat + n8n + Supabase) construído e colocado na rua em 2 semanas.
+                </div>
+                <div class="p-2 rounded bg-rose-950/40 border border-rose-800/30 text-rose-300">
+                  <strong>❌ Exemplo Nota 1 (Lento e Pesado):</strong> Desenvolver app nativo iOS/Android em Flutter/React Native, criar backend de microsserviços e aguardar homologação da Apple Store (3+ meses).
+                </div>
+              </div>
+            </div>
+
+            <!-- L -->
+            <div class="p-4 rounded-xl bg-surface-850 border border-slate-800/80 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-sm text-purple-400 flex items-center gap-1.5">
+                  <span class="w-6 h-6 rounded bg-purple-500/20 text-purple-400 flex items-center justify-center font-mono text-xs">L</span>
+                  Levantamento da Escala (Leverage for Scale)
+                </span>
+                <span class="text-[11px] text-slate-400 font-mono">Alavancagem Futura</span>
+              </div>
+              <p class="text-xs text-slate-300">
+                <strong>O que mede:</strong> O potencial de a solução absorver 10x ou 100x de crescimento sem quebrar a operação física e sem exigir trabalho manual linear.
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs pt-1">
+                <div class="p-2 rounded bg-emerald-950/40 border border-emerald-800/30 text-emerald-300">
+                  <strong>✅ Exemplo Nota 5 (Alta Alavancagem):</strong> Sistema em nuvem indexado que pode atender 10.000 pessoas simultâneas com custo marginal de infraestrutura praticamente zero.
+                </div>
+                <div class="p-2 rounded bg-rose-950/40 border border-rose-800/30 text-rose-300">
+                  <strong>❌ Exemplo Nota 1 (Gargalo Operacional):</strong> Concierge 100% humano respondendo manualmente cada usuário no WhatsApp. Se chegarem 50 clientes ao mesmo tempo, a operação colapsa.
+                </div>
+              </div>
+            </div>
+
+            <!-- E -->
+            <div class="p-4 rounded-xl bg-surface-850 border border-slate-800/80 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-sm text-amber-400 flex items-center gap-1.5">
+                  <span class="w-6 h-6 rounded bg-amber-500/20 text-amber-400 flex items-center justify-center font-mono text-xs">E</span>
+                  Efeito WOW (Delight / Potencial Viral)
+                </span>
+                <span class="text-[11px] text-slate-400 font-mono">Encanto no Primeiro Uso</span>
+              </div>
+              <p class="text-xs text-slate-300">
+                <strong>O que mede:</strong> A capacidade da primeira interação surpreender positivamente o usuário, quebrar expectativas e provocar boca a boca orgânico espontâneo.
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs pt-1">
+                <div class="p-2 rounded bg-emerald-950/40 border border-emerald-800/30 text-emerald-300">
+                  <strong>✅ Exemplo Nota 5 (Efeito WOW Alto):</strong> O mascote "Capizin" (capivara sommelier com óculos escuros) respondendo com gírias curitibanas, acertando o bar em segundos e oferecendo "Chopp em Dobro".
+                </div>
+                <div class="p-2 rounded bg-rose-950/40 border border-rose-800/30 text-rose-300">
+                  <strong>❌ Exemplo Nota 1 (Sem Diferenciação):</strong> Uma planilha cinza do Excel compartilhada no Google Drive com nomes de bares. Funciona como banco de dados, mas não gera emoção nem compartilhamento.
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Interpretação do Score -->
+          <div class="p-4 rounded-xl bg-surface-900 border border-slate-800 space-y-2">
+            <h5 class="text-xs font-bold uppercase tracking-wider text-white">Como Analisar o Score Final da Matriz SCALE:</h5>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs">
+              <div class="p-2.5 rounded-lg bg-emerald-950/50 border border-emerald-800/40 text-slate-300">
+                <strong class="text-emerald-400 block mb-0.5">≥ 20 Pontos</strong>
+                <span class="font-semibold text-white">MVP Campeão:</span> Prioridade máxima para teste imediato. Máximo aprendizado com mínimo risco de capital (caso do Agente WhatsApp: 23 pts).
+              </div>
+              <div class="p-2.5 rounded-lg bg-amber-950/50 border border-amber-800/40 text-slate-300">
+                <strong class="text-amber-400 block mb-0.5">15 a 19 Pontos</strong>
+                <span class="font-semibold text-white">Fase de Escala:</span> Solução viável para o futuro, mas pesada para o primeiro MVP (caso do App Nativo: 17 pts).
+              </div>
+              <div class="p-2.5 rounded-lg bg-rose-950/50 border border-rose-800/40 text-slate-300">
+                <strong class="text-rose-400 block mb-0.5">&lt; 15 Pontos</strong>
+                <span class="font-semibold text-white">Descarte Imediato:</span> Pouco aprendizado ou baixo valor percebido. Descarte para não queimar foco (caso do Guia PDF: 13 pts).
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </details>
 
       <div class="p-5 rounded-2xl bg-surface-900 border border-slate-800 space-y-3">
         <p class="text-sm text-slate-300 leading-relaxed">
@@ -955,6 +1208,13 @@ graph TD
   <script>
     // Initialize Lucide Icons
     lucide.createIcons();
+
+    // Re-trigger Lucide Icons on details toggle
+    document.querySelectorAll('details').forEach(el => {
+      el.addEventListener('toggle', () => {
+        lucide.createIcons();
+      });
+    });
 
     // Scroll Progress Bar
     window.addEventListener('scroll', () => {
